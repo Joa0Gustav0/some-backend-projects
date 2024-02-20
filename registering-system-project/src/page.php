@@ -11,7 +11,7 @@ class PageContent {
     ],
     "en" => [
       "nav-links-title" => "application tabs",
-      "nav-links" => ["Registrar Usuários", "Analisar Registros"]
+      "nav-links" => ["Register Users", "Analise Registers"]
     ],
     "es" => [
       "nav-links-title" => "pestañas de la aplicación",
