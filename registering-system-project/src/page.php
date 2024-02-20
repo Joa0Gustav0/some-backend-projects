@@ -19,7 +19,7 @@ class PageContent {
     ],
   ];
 
-  static $userLanguage = "pt-br";
+  public $userLanguage = "pt-br";
   public $content = null;
 
   static function getUserLanguage() {
@@ -29,8 +29,8 @@ class PageContent {
       } 
       else if (!array_key_exists($_GET["lang"], self::$availableContentLanguage)) {
         throw new \Exception(
-          "<p>> user-lang --get</p>".
-          "<p>> 404</p>"
+          "<p class='warning'>> user-lang --get</p>".
+          "<p class='warning'>> 404 language not found</p>"
 
         );
       } else {
@@ -38,17 +38,16 @@ class PageContent {
       }
     } catch(\Exception $exc) {
       echo $exc->getMessage();
+      return "pt-br";
     }
   } 
 
   private function getContent() {
-    self::$userLanguage = self::getUserLanguage();
-    $this->content = PageContent::$availableContentLanguage[PageContent::$userLanguage];
+    $this->userLanguage = PageContent::getUserLanguage();
+    $this->content = PageContent::$availableContentLanguage[$this->userLanguage];
   }
 
   public function __construct() {
     $this->getContent();
   }
 }
-
-$page = new PageContent();
