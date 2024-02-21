@@ -36,8 +36,8 @@
       <input type="number" name="idade" id="idade" placeholder="Insira sua idade..." min="0" max="150" required/>
       <label for="email">Email</label>
       <input type="text" name="email" id="email" autocomplete="off" placeholder="Insira seu email..." maxlength="50" required/>
-      <label for="hobbie">Hobbie</label>
-      <input type="text" name="hobbie" id="hobbie" autocomplete="off" placeholder="Insira um hobbie" maxlength="20" required/>
+      <label for="hobbie">Hobby</label>
+      <input type="text" name="hobbie" id="hobbie" autocomplete="off" placeholder="Insira um hobby" maxlength="20" required/>
       <input type="submit" name="submit" id="submit" value="Registrar Já!"/>
     </form>
   </main>

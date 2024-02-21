@@ -28,13 +28,18 @@ class DatabaseCrud {
 
   public function setSQLStatement($entryStatement) {
     try {
+      if (str_contains($entryStatement, "SELECT")) {
+        return $this->connection->query($entryStatement);
+      }
       $this->connection->query($entryStatement);
     } catch(Exception $exc) {
       echo "Erro ao criar registro no banco de dados: {$exc->getMessage()}";
       return;
     } 
 
-    unset($_POST);
-    header("Location: ".$_SERVER['PHP_SELF']);
+    if (str_contains($entryStatement, "INSERT INTO")) {
+      unset($_POST);
+      header("Location: ".$_SERVER['PHP_SELF']);
+    }
   }
 }

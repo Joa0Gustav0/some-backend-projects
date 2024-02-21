@@ -1,0 +1,33 @@
+.register-container {
+  width: 100%;
+  max-width: 425px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+.register-container > h1 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.register-container__informations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+.register-container__informations__topic {
+  line-clamp: 1;
+  font-weight: 600;
+  font-size: 1.125em;
+  width: max-content;
+  min-width: fit-content;
+}
+.register-container__informations__data {
+  line-clamp: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-align: right;
+  text-overflow: ellipsis;
+}

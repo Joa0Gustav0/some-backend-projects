@@ -20,6 +20,7 @@ body {
 
   width: 100%;
   height: 100vh;
+  background-color: #F5F5F5;
 }
 
 .header {
@@ -86,6 +87,7 @@ body {
   text-align: center;
 }
 .main__greeting-texts__title-text {
+  text-align: center;
   color: var(--primary-color);
 }
 
