@@ -1,6 +1,9 @@
 <?php 
 
 require_once __DIR__ . "/../src/page.php";
+require_once __DIR__ . "/../src/tabs-content.php";
+
+$currentTab = "";
 
 ?>
 
@@ -43,17 +46,20 @@ require_once __DIR__ . "/../src/page.php";
             if (isset($_GET["tab"])) {
               if ($_GET["tab"] !== "view-users") {
                 $class = "nav-link active";
+                $currentTab = "register-tab";
               } else {
                 $class = "nav-link";
               }
             } else {
               $class = "nav-link active";
+              $currentTab = "register-tab";
             }
           } else {
             $href = "view-users";
             if (isset($_GET["tab"])) {
               if ($_GET["tab"] === "view-users") {
                 $class = "nav-link active";
+                $currentTab = "view-tab";
               } else {
                 $class = "nav-link";
               }
@@ -70,6 +76,7 @@ require_once __DIR__ . "/../src/page.php";
         }
       ?>
     </nav>
+    <?php echo getTabContent($currentTab) ?>
   </main>
 </body>
 </html>
