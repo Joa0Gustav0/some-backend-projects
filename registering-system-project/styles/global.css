@@ -52,6 +52,7 @@ body {
   color: white;
   font-weight: 500;
   padding: 10px 16px;
+  text-align: center;
 }
 .header__container__nav__navlinks:hover {
   text-decoration: underline;
@@ -81,7 +82,10 @@ body {
   margin: auto;
   max-width: 1115px;
   padding: 20px 16px;
-  height: calc(100% - 85px);
+  min-height: fit-content;
+}
+.main__title-text {
+  text-align: center;
 }
 .main__greeting-texts {
   text-align: center;
@@ -94,4 +98,12 @@ body {
 .main__greeting-texts__form-status-text {
   font-size: 0.9em;
   color: #ff0050;
+}
+
+@media screen and (max-width: 649px) {
+  .header__container {
+    gap: 15px;
+    align-items: center;
+    flex-direction: column;
+  }
 }

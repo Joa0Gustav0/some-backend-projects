@@ -51,6 +51,15 @@ class FormularyValidation {
         FormularyValidation::$validationErrors++;
         throw new \Exception("O campo '" . $entryInputName . "' não pode conter números");
       }
+      if ($entryInputName === "email") {
+        $checkfulCrud = new DatabaseCrud();
+        foreach($checkfulCrud->setSQLStatement("SELECT * FROM registers") as $register) {
+          if (strtolower($register["UserEmail"]) === strtolower($entryInputData)) {
+            FormularyValidation::$validationErrors++;
+            throw new \Exception("O email inserido já está em uso.");
+          }
+        }
+      }
     } catch(\Exception $exc) {
       echo "<p class='main__greeting-texts__form-status-text'>⚠ " . $exc->getMessage() . "</p>";
     }
