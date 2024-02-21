@@ -34,7 +34,3 @@ form > input:last-of-type:active {
   transform: translateY(0px);
   box-shadow: 0px 0px 0px #6f9b3b;
 }
-form > p {
-  color: #FF0050;
-  font-size: .85em;
-}

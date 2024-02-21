@@ -1,3 +1,6 @@
+<?php 
+  require_once __DIR__ . "/src/formulary-validation.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,21 +27,22 @@
   <main class="main">
     <div class="main__greeting-texts">
       <h1 class="main__greeting-texts__title-text">👋 Registre-se Aqui!</h1>
-      <p class="main__greeting-texts__form-status-text">😥 Mensagem de Teste</p>
+      <?php App\FormularyValidation::validateInputs() ?>
     </div>
+    <?php 
+      echo "<pre>";
+      print_r($_POST);
+      echo "</pre>";
+    ?>
     <form action="index.php" method="POST">
       <label for="nome">Nome</label>
-      <input type="text" name="nome" id="nome" autocomplete="off" placeholder="Insira seu nome..." maxlength="20">
-      <p>⚠ O campo deve ser preenchido!</p>
+      <input type="text" name="nome" id="nome" autocomplete="off" placeholder="Insira seu nome..." maxlength="20" required>
       <label for="idade">Idade</label>
-      <input type="number" name="idade" id="idade" placeholder="Insira sua idade..." min="0" max="150"/>
-      <p>⚠ O campo deve ser preenchido!</p>
+      <input type="number" name="idade" id="idade" placeholder="Insira sua idade..." min="0" max="150" required/>
       <label for="email">Email</label>
-      <input type="text" name="email" id="email" autocomplete="off" placeholder="Insira seu email..." maxlength="50"/>
-      <p>⚠ O campo deve ser preenchido!</p>
+      <input type="text" name="email" id="email" autocomplete="off" placeholder="Insira seu email..." maxlength="50" required/>
       <label for="hobbie">Hobbie</label>
-      <input type="text" name="hobbie" id="hobbie" autocomplete="off" placeholder="Insira um hobbie" maxlength="20"/>
-      <p>⚠ O campo deve ser preenchido!</p>
+      <input type="text" name="hobbie" id="hobbie" autocomplete="off" placeholder="Insira um hobbie" maxlength="20" required/>
       <input type="submit" name="submit" id="submit" value="Registrar Já!"/>
     </form>
   </main>

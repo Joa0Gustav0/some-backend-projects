@@ -84,6 +84,10 @@ body {
   text-align: center;
 }
 .main__greeting-texts__title-text {
-  text-align: center;
   color: var(--primary-color);
+}
+
+.main__greeting-texts__form-status-text {
+  font-size: 0.9em;
+  color: #ff0050;
 }
