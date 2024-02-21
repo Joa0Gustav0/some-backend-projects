@@ -5,19 +5,19 @@ class Formulary {
 
   public function addInput($label, $type) {
     $this->content .= 
-    "<label for='{$label}'>" . ucfirst($label) . "</label><input type='{$type}' name='{$label}' id='{$label}' placeholder='...' min='0' max='" . 
+    "<label for='{$label}'>" . ucfirst($label) . "</label><input autocomplete='off' type='{$type}' name='{$label}' id='{$label}' min='0' " . 
      Formulary::getInputMaxAttributeBasedOnType($type)
-    . "' />";
+    . " />";
     return $this;
   }
 
   static function getInputMaxAttributeBasedOnType($entryType) {
     switch($entryType) {
       case "text":
-        return 50;
+        return "maxlength='50'";
         break;
       case "number":
-        return 150;
+        return "max='150'";
         break;
     }
   }
@@ -32,7 +32,7 @@ class Formulary {
 }
 
 function createNewFormulary() {
-  $formularyActionFile = __FILE__;
+  $formularyActionFile = "index.php";
   
   $newFormulary = new Formulary($formularyActionFile);
   $newFormulary->addInput("nome", "text")->addInput("idade", "number")->addInput("email", "text")->addInput("hobbie", "text");

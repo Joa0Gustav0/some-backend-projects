@@ -12,6 +12,7 @@ $currentTab = "";
 <head>
   <meta charset="UTF-8">
   <meta name="google" content="notranslate">
+  <link rel="stylesheet" href="../src/styles/form.css">
   <link rel="stylesheet" href="../src/styles/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register Yourself</title>
@@ -70,7 +71,7 @@ $currentTab = "";
 
 
           echo 
-          "<a class='{$class}' href='?lang={$_GET["lang"]}&tab={$href}'>" . 
+          "<a class='{$class}' href='?lang={$page->userLanguage}&tab={$href}'>" . 
             $link . 
           "</a>";
         }
