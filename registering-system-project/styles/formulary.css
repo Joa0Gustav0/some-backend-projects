@@ -1,0 +1,40 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2.5px;
+  width: 100%;
+  max-width: 350px;
+}
+form > label {
+  font-size: 1.125em;
+}
+form > input:not(:last-of-type) {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+form > input:last-of-type {
+  transition: all 0.25s;
+  border: 0;
+  padding: 10px;
+  outline: none;
+  color: white;
+  font-size: 1.1em;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  box-shadow: 0px 0px 0px #6f9b3b;
+}
+form > input:last-of-type:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 0px #6f9b3b;
+}
+form > input:last-of-type:active {
+  transform: translateY(0px);
+  box-shadow: 0px 0px 0px #6f9b3b;
+}
+form > p {
+  color: #FF0050;
+  font-size: .85em;
+}

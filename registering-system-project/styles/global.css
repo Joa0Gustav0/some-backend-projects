@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #88be46;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+body {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  padding: 16px 20px;
+  background-color: var(--primary-color);
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: auto;
+  max-width: 1115px;
+}
+.header__container__logo-text {
+  color: white;
+  font-size: 1.5em;
+}
+.header__container__nav {
+  display: flex;
+  align-items: center;
+
+  gap: 1.125em;
+}
+.header__container__nav__navlinks {
+  transition: all 0.25s;
+
+  color: white;
+  font-weight: 500;
+  padding: 10px 16px;
+}
+.header__container__nav__navlinks:hover {
+  text-decoration: underline;
+}
+
+.header__container__nav__navlinks:last-of-type:hover {
+  color: white;
+  border: 1px solid white;
+  background-color: var(--primary-color);
+}
+.header__container__nav__navlinks:last-of-type,
+.header__container__nav__navlinks:last-of-type:active {
+  border-radius: 15px;
+  background-color: white;
+  color: var(--primary-color);
+  border: 1px solid transparent;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 16px;
+  width: 100%;
+  margin: auto;
+  max-width: 1115px;
+  padding: 20px 16px;
+}
+.main__greeting-texts {
+  text-align: center;
+}
+.main__greeting-texts__title-text {
+  text-align: center;
+  color: var(--primary-color);
+}
