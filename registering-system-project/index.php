@@ -27,13 +27,8 @@
   <main class="main">
     <div class="main__greeting-texts">
       <h1 class="main__greeting-texts__title-text">👋 Registre-se Aqui!</h1>
-      <?php App\FormularyValidation::validateInputs() ?>
+      <?php new FormularyValidation() ?>
     </div>
-    <?php 
-      echo "<pre>";
-      print_r($_POST);
-      echo "</pre>";
-    ?>
     <form action="index.php" method="POST">
       <label for="nome">Nome</label>
       <input type="text" name="nome" id="nome" autocomplete="off" placeholder="Insira seu nome..." maxlength="20" required>

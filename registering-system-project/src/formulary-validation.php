@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+require __DIR__ . "/crud.php";
 
 function contains($containType, $entryData) {
   $CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -19,7 +19,21 @@ function contains($containType, $entryData) {
 }
 
 class FormularyValidation {
-  static $validationError = 0;
+  static $validationErrors = 0;
+
+  function __construct() {
+    if (FormularyValidation::validateInputs() && count($_POST) > 0) {
+      $this->registerUserIntoDatabase();
+    }
+  }
+
+  function registerUserIntoDatabase() {
+    if ($databaseCrud = new DatabaseCrud()) {
+      $databaseCrud->setSQLStatement(
+        "INSERT INTO registers (UserName, UserAge, UserEmail, UserHobbie) VALUES('{$_POST["nome"]}',{$_POST["idade"]},'{$_POST["email"]}','{$_POST["hobbie"]}')"
+      );
+    }
+  }
 
   static function validateSingleInput($entryInputName, $entryInputData) {
     if (
@@ -27,14 +41,14 @@ class FormularyValidation {
       && !contains("number", $entryInputData)) {
       echo 
       "<p class='main__greeting-texts__form-status-text'>⚠ O campo '" . $entryInputName ."' deve ser preenchido corretamente.</p>";
-      FormularyValidation::$validationError++;
+      FormularyValidation::$validationErrors++;
       return;
     }
 
     
     try {
       if ($entryInputName === "nome" && contains("number", $entryInputData)) {
-        FormularyValidation::$validationError++;
+        FormularyValidation::$validationErrors++;
         throw new \Exception("O campo '" . $entryInputName . "' não pode conter números");
       }
     } catch(\Exception $exc) {
@@ -48,5 +62,7 @@ class FormularyValidation {
         FormularyValidation::validateSingleInput($inputName, $inputData);
       }
     }
+
+    return FormularyValidation::$validationErrors === 0;
   }
 }

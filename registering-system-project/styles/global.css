@@ -72,6 +72,7 @@ body {
 .main {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 
   gap: 16px;
@@ -79,6 +80,7 @@ body {
   margin: auto;
   max-width: 1115px;
   padding: 20px 16px;
+  height: calc(100% - 85px);
 }
 .main__greeting-texts {
   text-align: center;
